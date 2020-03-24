@@ -21,6 +21,6 @@
   "homepage": "https://github.com/hungpham2202/cz4034-IR#readme",
   "dependencies": {
     "restify": "^8.5.1",
-    "solr": "^0.3.0"
+    "solr-node": "^1.2.1"
   }
 }
