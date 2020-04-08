@@ -3,12 +3,12 @@ const fs = require('fs');
 const config = require('./config');
 
 
-var server = restify.createServer({ name: config.NAME })
+let server = restify.createServer({ name: config.NAME })
 
 
 // Get list of controllers
-var controllers = {};
-var controllers_path = process.cwd() + '/app/controller';
+let controllers = {};
+let controllers_path = process.cwd() + '/app/controller';
 fs.readdirSync(controllers_path).forEach(function (file) {
     if (file.indexOf('.js') != -1) {
         controllers[file.split('.')[0]] = require(controllers_path + '/' + file);
@@ -19,20 +19,26 @@ fs.readdirSync(controllers_path).forEach(function (file) {
 // Middleware
 server.use(restify.plugins.acceptParser(server.acceptable));
 server.use(restify.plugins.queryParser());
-server.use(restify.plugins.bodyParser({ mapParams: true }));
+server.use(restify.plugins.bodyParser({ mapParams: true, overrideParams: false }));
 
 
 // Backend API endpoints
 server.get("/health", function (req, res, next) {
     res.json(200, "beep boop");
-    next();
+    next()
 });
 
-
-// server.get("/search", controllers.search)
+server.get("/all", controllers.search.getAll);
 server.get("/search", controllers.search.search);
-server.get("/data", controllers.data.addData);
-server.get("/delete", controllers.data.deleteData);
+// server.get("/data", controllers.data.addData);
+server.get("/delete/:id", controllers.data.deleteData);
+
+
+// Static content
+server.get("/*", restify.plugins.serveStatic({
+    directory: process.cwd() + "/view",
+    default: 'search.html'
+}));
 
 
 // Gets the server up and listening
