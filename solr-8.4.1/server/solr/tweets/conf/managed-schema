@@ -452,6 +452,7 @@
   <field name="_version_" type="plong" indexed="false" stored="false"/>
   <field name="author" type="text_general"/>
   <field name="created_at" type="pdates"/>
+  <field name="delete" type="text_general"/>
   <field name="favorite_count" type="plongs"/>
   <field name="id" type="string" multiValued="false" indexed="true" required="true" stored="true"/>
   <field name="retweet_count" type="plongs"/>
@@ -527,4 +528,5 @@
   <dynamicField name="*_p" type="location" indexed="true" stored="true"/>
   <copyField source="author" dest="author_str" maxChars="256"/>
   <copyField source="text" dest="text_str" maxChars="256"/>
+  <copyField source="delete" dest="delete_str" maxChars="256"/>
 </schema>

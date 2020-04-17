@@ -31,3 +31,21 @@ exports.deleteData = function (req, res, next) {
         next();
     });
 }
+
+exports.updateFav = function (req, res, next) {
+    let id = req.params.id;
+    let fav = req.params.fav;
+
+    let data = {
+        id: id,
+        favorite_count: { "set": parseInt(fav) + 1 }
+    }
+
+    solr.update(data, function (err, result) {
+        if (err) {
+            console.log(err);
+            res.send(500, err);
+        }
+        res.send({ ok: "true", message: result })
+    })
+}

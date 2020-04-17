@@ -15,14 +15,23 @@ exports.getAll = function (req, res, next) {
 }
 
 exports.search = function (req, res, next) {
-    let author = req.query.author || "*";;
+    let author = req.query.author || "*";
     let text = req.query.q || "*";
-    let page_size = req.query.row || "10";;
+    let page_size = req.query.row || "10";
+    let start = req.query.start || "0";
+    // sort based on favorite_count then retweet_count in desc order
+    let sort = "favorite_count desc, retweet_count desc";
 
-    let queryStr = solr.query().q({
-        author: author.replace(/%20/g, '+'),
-        text: text.replace(/%20/g, '+')
-    }).start(0).rows(page_size);
+    // let queryStr = solr.query().q({
+    //     text: text,
+    //     author: author,
+    // }).start(start).rows(page_size);
+
+    let queryStr = "q=text:(" + text.replace(/\s/g, " AND ") +
+        ") AND author:" + author +
+        "&sort=" + sort + "&start=" + start + "&rows=" + page_size;
+
+    console.log(queryStr);
 
     solr.search(queryStr, function (err, result) {
         if (err) {

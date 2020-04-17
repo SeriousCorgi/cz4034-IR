@@ -20,6 +20,13 @@ fs.readdirSync(controllers_path).forEach(function (file) {
 server.use(restify.plugins.acceptParser(server.acceptable));
 server.use(restify.plugins.queryParser());
 server.use(restify.plugins.bodyParser({ mapParams: true, overrideParams: false }));
+server.use(
+    function crossOrigin(req, res, next) {
+        res.header("Access-Control-Allow-Origin", "*");
+        res.header("Access-Control-Allow-Headers", "X-Requested-With");
+        return next();
+    }
+);
 
 
 // Backend API endpoints
@@ -32,6 +39,7 @@ server.get("/all", controllers.search.getAll);
 server.get("/search", controllers.search.search);
 // server.get("/data", controllers.data.addData);
 server.get("/delete/:id", controllers.data.deleteData);
+server.post("/update/:id/:fav", controllers.data.updateFav);
 
 
 // Static content

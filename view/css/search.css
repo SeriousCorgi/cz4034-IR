@@ -117,3 +117,28 @@ form .inner-form .input-field.input-btn .btn:focus {
   box-shadow: 0px 8px 20px 0px rgba(0, 0, 0, 0.15);
   padding-top: 16px;
 }
+
+.tweets-list .tweet h3 {
+  font-weight: 400;
+}
+
+.tweets-list .tweet .meta span {
+  font-size: 14px;
+  color: #bfbfbf;
+}
+
+.tweets-list .tweet .meta span.author{
+  color: #000000 !important;
+}
+
+.tweets-list .tweet p a {
+  color: #000000;
+  transition: .3s all ease;
+  color: #1eafed;
+  text-decoration: none;
+  background-color: transparent;
+}
+
+.tweets-list .tweet p a:focus, .tweets-list .tweet p a:hover {
+  Text-Decoration: None !important;
+}
