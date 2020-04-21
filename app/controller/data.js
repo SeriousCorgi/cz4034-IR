@@ -66,6 +66,7 @@ exports.addTweet = function (req, res, next) {
                 }
                 tweets_cc = tweets_cc.concat(tweets);
                 i++;
+
                 // return data after fetching from the last source
                 if (i == (sources.length)) {
                     res.send(tweets_cc);
