@@ -8,9 +8,9 @@ $("a").click(function () {
     $favorite = $(selector).attr("fav");
 
     $.ajax({
-        url: '/update/' + $id + '/' + $favorite,
+        url: '/update',
         type: 'post',
-        data: {},
+        data: { id: $id, fav: $favorite },
         headers: {},
         dataType: 'json',
         success: function (data) {

@@ -37,15 +37,16 @@ server.get("/health", function (req, res, next) {
 
 server.get("/all", controllers.search.getAll);
 server.get("/search", controllers.search.search);
-// server.get("/data", controllers.data.addData);
-server.get("/delete/:id", controllers.data.deleteData);
-server.post("/update/:id/:fav", controllers.data.updateFav);
+
+server.post("/add", controllers.data.addTweet);
+server.post("/delete", controllers.data.deleteData);
+server.post("/update", controllers.data.updateFav);
 
 
 // Static content
 server.get("/*", restify.plugins.serveStatic({
     directory: process.cwd() + "/view",
-    default: 'search.html'
+    default: 'index.html'
 }));
 
 

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Search</title>
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/main.css">
+</head>
+
+
+<body>
+    <div class="container pt-3">
+        <div class="search-bar">
+            <form>
+                <div class="inner-form">
+                    <div class="input-field input-select">
+                        <select class="custom-select" id="select-author">
+                            <option value="*" twitter="*">All</option>
+                            <option value="BBC" twitter="BBCNewsAsia">BBC Asia</option>
+                            <option value="Times" twitter="STcom">The Straits Times</option>
+                            <option value="CNA" twitter="ChannelNewsAsia">CNA</option>
+                        </select>
+                    </div>
+
+                    <div class="input-field input-text">
+                        <input type="text" placeholder="Enter Keywords?" id="query-box">
+                    </div>
+
+                    <div class="input-field input-btn">
+                        <button class="btn btn-green" type="button" id="search-btn">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+
+                    <div class="input-field input-btn">
+                        <button class="btn btn-pink" type="button" id="fetch-btn">
+                            <i class="fa fa-arrow-circle-down"></i>
+                        </button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div class="container pt-3">
+        <div class="tweets-list col-lg-3 col-md-3 mx-auto" id="tweets-list"></div>
+    </div>
+
+    <script src="js/search.js"></script>
+    <script src="js/data.js"></script>
+</body>
+
+</html>

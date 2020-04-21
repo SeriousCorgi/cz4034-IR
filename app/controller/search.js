@@ -7,8 +7,8 @@ exports.getAll = function (req, res, next) {
 
     solr.search(queryStr, function (err, result) {
         if (err) {
-            res.send(err);
             console.log(err);
+            res.send(500, err);
         }
         res.json(result);
     });
@@ -35,8 +35,8 @@ exports.search = function (req, res, next) {
 
     solr.search(queryStr, function (err, result) {
         if (err) {
-            res.send(err);
             console.log(err);
+            res.send(500, err);
         }
         res.json(result);
     })

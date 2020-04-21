@@ -1,5 +1,9 @@
 module.exports = {
     NAME: 'cz4034-information-retrieval',
     PORT: process.env.PORT || 3000,
-    URL: process.env.URL || 'http://localhost:3000'
+    URL: process.env.URL || 'http://localhost:3000',
+    TWITTER_CONSUMER_KEY: 'NBPYXJjEhpsIWpmq1F14Xcovj',
+    TWITTER_CONSUMER_SECRET: 'ratVgDY1nTwzQPJgS2lpgCY0PFsSJDa89WkFPzpv1GBrIzRObV',
+    TWITTER_ACCESS_TOKEN_KEY: '1236858962621784064-MBlaIT6CevfmsAJ6z9GKYkYENKYEE8',
+    TWITTER_ACCESS_TOKEN_SECRET: 'N5J5H7Q6mXHH3yz22KPvTeeEofW8OafIJiEB1GmaWyW0V',
 }

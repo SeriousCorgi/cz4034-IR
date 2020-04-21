@@ -69,6 +69,8 @@ $(document).ready(function () {
         });
     })
 
+    $("#fetch-btn").click(function () { scroll = false; });
+
     // Load more tweets on scroll down.
     $(window).scroll(function () {
         if (scroll == true && $start < $num_found) {
