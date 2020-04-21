@@ -1,5 +1,6 @@
 # CZ4034 - Information Retrieval
->Information Retrieval Course Assignment
+> Course Assignment
+
 An information retrieval system for sentiment analysis using NodeJS, Apache Solr
 
 ## Installation
@@ -16,6 +17,11 @@ Start Solr server:
 solr-8.4.1/bin/solr start
 ```
 >_To stop the Solr server, run `solr-8.4.1/bin/solr stop`_
+
+* Window:
+```
+solr-8.4.1\bin\solr.cmd start
+```
 
 Start Node server:
 ```
