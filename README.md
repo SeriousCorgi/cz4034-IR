@@ -1,5 +1,5 @@
 # CZ4034 - Information Retrieval
-> Course Assignment
+_Course Assignment: an info retrieval system with web interface_
 
 An information retrieval system for sentiment analysis using [NodeJS](https://nodejs.org/en/ "Download") and [Apache Solr](https://www.apache.org/dyn/closer.lua/lucene/solr/8.5.1/solr-8.5.1.zip "Download"):
 * Index tweets from multiple source.
